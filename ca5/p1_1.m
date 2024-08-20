@@ -1,0 +1,20 @@
+fs = 50;
+tstart = -1;
+tend = 1;
+t = tstart:1/fs:tend-1/fs;
+N = length(t);
+f = -fs/2:fs/N:fs/2-fs/N;
+x1 = cos(10*pi*t);
+plot(f, x1);
+grid on;
+title("cos(10*pi*t)");
+
+figure;
+y1 = fftshift(fft(x1));
+y1 = y1 / max(abs(y1));
+plot(f, abs(y1));
+grid on;
+title("cos(10*pi*t)");
+xlabel("Frequency");
+ylabel("Magnitude");
+xlim([-10 10]);
